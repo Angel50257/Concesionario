@@ -1,0 +1,26 @@
+{% extends "ventas.html" %}
+
+{% block content %}
+<a href="{{ url_for('ventas.add_sale') }}">Agregar Venta</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>ID vehiculo</th>
+        <th>ID cliente</th>
+        <th>Fecha venta</th>
+        <th>Acciones</th>
+        </tr>
+    {% for venta in ventas %}
+    <tr>
+        <td>{{ venta.id }}</td>
+        <td>{{ venta.id_vehiculo }}</td>
+        <td>{{ venta.id_cliente }}</td>
+        <td>{{ venta.fecha_venta }}</td>
+        <td>
+            <a href="{{ url_for('ventas.edit_sale', id=venta.id) }}">Editar</a>
+            <a href="{{ url_for('ventas.delete_sale', id=venta.id) }}" onclick="return confirm('¿Seguro que deseas eliminar?')">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

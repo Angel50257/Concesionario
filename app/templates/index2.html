@@ -1,0 +1,28 @@
+{% extends "clientes.html" %}
+
+{% block content %}
+<a href="{{ url_for('clientes.add_customer') }}">Agregar Cliente</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>DPI</th>
+        <th>Correo</th>
+        <th>Telefono</th>
+        <th>Acciones</th>
+        </tr>
+    {% for cliente in clientes %}
+    <tr>
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.dpi }}</td>
+        <td>{{ cliente.correo }}</td>
+        <td>{{ cliente.telefono }}</td>
+        <td>
+            <a href="{{ url_for('clientes.edit_customer', id=cliente.id) }}">Editar</a>
+            <a href="{{ url_for('clientes.delete_customer', id=cliente.id) }}" onclick="return confirm('¿Seguro que deseas eliminar?')">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

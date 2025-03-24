@@ -1,0 +1,15 @@
+{% extends "clientes.html" %}
+
+{% block content %}
+<form method="POST">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
+    <label>Dpi:</label>
+    <input type="text" name="dpi" required>
+    <label>Correo:</label>
+    <input type="text" name="correo" required>
+    <label>Telefono:</label>
+    <input type="text" name="telefono" required>
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}

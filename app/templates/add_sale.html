@@ -1,0 +1,13 @@
+{% extends "ventas.html" %}
+
+{% block content %}
+<form method="POST">
+    <label>ID vehiculo:</label>
+    <input type="number" name="id_vehiculo" required>
+    <label>ID cliente:</label>
+    <input type="number" name="id_cliente" required>
+    <label>Fecha venta:</label>
+    <input type="date" name="fecha_venta" required>
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}

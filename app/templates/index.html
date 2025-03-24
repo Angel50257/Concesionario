@@ -1,0 +1,30 @@
+{% extends "vehiculos.html" %}
+
+{% block content %}
+<a href="{{ url_for('main.add_car') }}">Agregar Vehiculo</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Año</th>
+        <th>Precio</th>
+        <th>Disponibilidad</th>
+        <th>Acciones</th>
+        </tr>
+    {% for vehiculo in vehiculos %}
+    <tr>
+        <td>{{ vehiculo.id }}</td>
+        <td>{{ vehiculo.marca }}</td>
+        <td>{{ vehiculo.modelo }}</td>
+        <td>{{ vehiculo.anio }}</td>
+        <td>{{ vehiculo.precio }}</td>
+        <td>{{ vehiculo.disponibilidad }}</td>
+        <td>
+            <a href="{{ url_for('main.edit_car', id=vehiculo.id) }}">Editar</a>
+            <a href="{{ url_for('main.delete_car', id=vehiculo.id) }}" onclick="return confirm('¿Seguro que deseas eliminar?')">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

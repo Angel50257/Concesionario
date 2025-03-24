@@ -1,0 +1,15 @@
+{% extends "clientes.html" %}
+
+{% block content %}
+<form method="POST">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" value="{{cliente.nombre}}" required>
+    <label>Dpi:</label>
+    <input type="text" name="dpi" value="{{cliente.dpi}}" required>
+    <label>Correo:</label>
+    <input type="text" name="correo" value="{{cliente.correo}}" required>
+    <label>Telefono:</label>
+    <input type="text" name="telefono" value="{{cliente.telefono}}" required>
+    <button type="submit">Actualizar</button>
+</form>
+{% endblock %}
