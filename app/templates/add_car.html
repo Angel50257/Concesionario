@@ -1,18 +1,35 @@
 {% extends "vehiculos.html" %}
 
 {% block content %}
-<form method="POST">
-    <label>Marca:</label>
-    <input type="text" name="marca" required>
-    <label>Modelo:</label>
-    <input type="text" name="modelo" required>
-    <label>Anio:</label>
-    <input type="text" name="anio" required>
-    <label>Precio:</label>
-    <input type="number" name="precio" required>
-    <label for="disponibilidad">Disponibilidad:</label>
-    <input type="radio" name="disponibilidad" value="1"> Disponible
-    <input type="radio" name="disponibilidad" value="0"> Vendido
-    <button type="submit">Guardar</button>
+<h2 class="mb-4">Agregar Vehículo</h2>
+<form method="POST" class="needs-validation">
+    <div class="mb-3">
+        <label class="form-label">Marca:</label>
+        <input type="text" name="marca" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Modelo:</label>
+        <input type="text" name="modelo" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Año:</label>
+        <input type="number" name="anio" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Precio (Q):</label>
+        <input type="number" name="precio" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label d-block">Disponibilidad:</label>
+        <div class="form-check form-check-inline">
+            <input type="radio" name="disponibilidad" value="1" class="form-check-input" required>
+            <label class="form-check-label">Disponible</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input type="radio" name="disponibilidad" value="0" class="form-check-input">
+            <label class="form-check-label">Vendido</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
 </form>
 {% endblock %}

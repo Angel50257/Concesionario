@@ -1,15 +1,24 @@
 {% extends "clientes.html" %}
 
 {% block content %}
-<form method="POST">
-    <label>Nombre:</label>
-    <input type="text" name="nombre" required>
-    <label>Dpi:</label>
-    <input type="text" name="dpi" required>
-    <label>Correo:</label>
-    <input type="text" name="correo" required>
-    <label>Telefono:</label>
-    <input type="text" name="telefono" required>
-    <button type="submit">Guardar</button>
+<h2 class="mb-4">Agregar Cliente</h2>
+<form method="POST" class="needs-validation">
+    <div class="mb-3">
+        <label class="form-label">Nombre:</label>
+        <input type="text" name="nombre" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">DPI:</label>
+        <input type="text" name="dpi" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Correo:</label>
+        <input type="email" name="correo" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Teléfono:</label>
+        <input type="text" name="telefono" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
 </form>
 {% endblock %}

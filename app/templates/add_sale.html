@@ -1,13 +1,20 @@
 {% extends "ventas.html" %}
 
 {% block content %}
-<form method="POST">
-    <label>ID vehiculo:</label>
-    <input type="number" name="id_vehiculo" required>
-    <label>ID cliente:</label>
-    <input type="number" name="id_cliente" required>
-    <label>Fecha venta:</label>
-    <input type="date" name="fecha_venta" required>
-    <button type="submit">Guardar</button>
+<h2 class="mb-4">Registrar Venta</h2>
+<form method="POST" class="needs-validation">
+    <div class="mb-3">
+        <label class="form-label">ID Vehículo:</label>
+        <input type="number" name="id_vehiculo" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ID Cliente:</label>
+        <input type="number" name="id_cliente" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fecha de Venta:</label>
+        <input type="date" name="fecha_venta" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
 </form>
 {% endblock %}
