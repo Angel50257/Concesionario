@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Concesionario</title>
-    <link rel="stylesheet" href="/app/static/index.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
     <header>
         <div class="container">
             <p class="logo">Concesionario</p>
             <nav>
-                <a href="vehiculos.html">Vehiculos</a>
-                <a href="clientes.html">Clientes</a>
-                <a href="ventas.html">Ventas</a>
+                <a href="http://127.0.0.1:5000/search">Buscar</a>
+                <a href="http://127.0.0.1:5000/car">Vehiculos</a>
+                <a href="http://127.0.0.1:5000/customer">Clientes</a>
+                <a href="http://127.0.0.1:5000/sale">Ventas</a>
             </nav>
         </div>
     </header>
 
     <section id="vehiculos">
         <h1>El auto de tus sueños</h1>
-        <form action="http://127.0.0.1:5000/">
+        <form action="http://127.0.0.1:5000/car">
             <button>Ver vehiculos</button>
         </form>
         

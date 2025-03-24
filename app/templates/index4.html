@@ -1,0 +1,68 @@
+{% extends "buscar.html" %}
+
+{% block content %}
+<h2>Buscar Vehículos</h2>
+<form method="GET" action="{{ url_for('buscar.buscar') }}">
+    <label>ID: <input type="number" name="vehiculo_id" value="{{ request.args.get('vehiculo_id', '') }}"></label>
+    <label>Marca: <input type="text" name="marca" value="{{ request.args.get('marca', '') }}"></label>
+    <label>Modelo: <input type="text" name="modelo" value="{{ request.args.get('modelo', '') }}"></label>
+    <label>Año: <input type="number" name="anio" value="{{ request.args.get('anio', '') }}"></label>
+    <label>Precio Máx: <input type="number" name="precio" value="{{ request.args.get('precio', '') }}"></label>
+    <label>Disponibilidad:
+        <select name="disponibilidad">
+            <option value="">Todos</option>
+            <option value="1" {% if request.args.get('disponibilidad') == "1" %}selected{% endif %}>Disponible</option>
+            <option value="0" {% if request.args.get('disponibilidad') == "0" %}selected{% endif %}>No disponible</option>
+        </select>
+    </label>
+    <button type="submit">Buscar Vehículos</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Año</th>
+        <th>Precio</th>
+        <th>Disponibilidad</th>
+    </tr>
+    {% for vehiculo in vehiculos %}
+    <tr>
+        <td>{{ vehiculo.id }}</td>
+        <td>{{ vehiculo.marca }}</td>
+        <td>{{ vehiculo.modelo }}</td>
+        <td>{{ vehiculo.anio }}</td>
+        <td>{{ vehiculo.precio }}</td>
+        <td>{{ "Sí" if vehiculo.disponibilidad else "No" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Buscar Clientes</h2>
+<form method="GET" action="{{ url_for('buscar.buscar') }}">
+    <label>ID: <input type="number" name="cliente_id" value="{{ request.args.get('cliente_id', '') }}"></label>
+    <label>Nombre: <input type="text" name="nombre" value="{{ request.args.get('nombre', '') }}"></label>
+    <label>DPI: <input type="text" name="dpi" value="{{ request.args.get('dpi', '') }}"></label>
+    <button type="submit">Buscar Clientes</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>DPI</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+    </tr>
+    {% for cliente in clientes %}
+    <tr>
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.dpi }}</td>
+        <td>{{ cliente.correo }}</td>
+        <td>{{ cliente.telefono }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

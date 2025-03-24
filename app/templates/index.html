@@ -1,7 +1,7 @@
 {% extends "vehiculos.html" %}
 
 {% block content %}
-<a href="{{ url_for('main.add_car') }}">Agregar Vehiculo</a>
+<a href="{{ url_for('vehiculo.add_car') }}">Agregar Vehiculo</a>
 <table border="1">
     <tr>
         <th>ID</th>
@@ -21,8 +21,8 @@
         <td>{{ vehiculo.precio }}</td>
         <td>{{ vehiculo.disponibilidad }}</td>
         <td>
-            <a href="{{ url_for('main.edit_car', id=vehiculo.id) }}">Editar</a>
-            <a href="{{ url_for('main.delete_car', id=vehiculo.id) }}" onclick="return confirm('¿Seguro que deseas eliminar?')">Eliminar</a>
+            <a href="{{ url_for('vehiculo.edit_car', id=vehiculo.id) }}">Editar</a>
+            <a href="{{ url_for('vehiculo.delete_car', id=vehiculo.id) }}" onclick="return confirm('¿Seguro que deseas eliminar?')">Eliminar</a>
         </td>
     </tr>
     {% endfor %}
